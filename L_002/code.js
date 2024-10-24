@@ -17,14 +17,30 @@ var L_002EventsExcersice;
             div.addEventListener("keyup", handleKeyUp);
         });
     }
-    function setInfoBox(event) {
-        console.log(`Mouse moved: X=${event.clientX}, Y=${event.clientY}`);
+    function setInfoBox(_event) {
+        // console.log(`Mouse moved: X=${event.clientX}, Y=${event.clientY}`);
+        let span = document.querySelector("span");
+        let box = "";
+        span.innerText = box;
+        span.style.top = _event.clientY + "px";
+        span.style.left = _event.clientX + "px";
     }
     function handleClick(event) {
         console.log(`Click event: Target=${event.target}`);
     }
     function handleKeyUp(event) {
         console.log(`Keyup event: Key=${event.key}`);
+    }
+    function logInfo(_event) {
+        console.log(_event.type);
+        console.log(_event.target);
+        console.log(_event.currentTarget);
+        console.log(_event);
+    }
+    const button = document.getElementById('CustomEventButton');
+    button?.addEventListener('click');
+    {
+        const customEvent = new CustomEvent('myCustomEvent');
     }
 })(L_002EventsExcersice || (L_002EventsExcersice = {}));
 //# sourceMappingURL=code.js.map

@@ -17,17 +17,30 @@ namespace L_002EventsExcersice {
             div.addEventListener("keyup", handleKeyUp);
         });
     }
-    function logInfo(_event: Event): void {
-        console.log("mouse")
-    }
-    function setInfoBox(event: MouseEvent): void {
-        console.log(`Mouse moved: X=${event.clientX}, Y=${event.clientY}`);
+   
+    function setInfoBox(_event: MouseEvent): void {
+       // console.log(`Mouse moved: X=${event.clientX}, Y=${event.clientY}`);
+        let span: HTMLElement = <HTMLElement>document.querySelector("span");
+         let box: string = ""
+        span.innerText = box
+        span.style.top = _event.clientY +"px";
+        span.style.left = _event.clientX + "px";
     }
     function handleClick(event: MouseEvent): void {
         console.log(`Click event: Target=${event.target}`);
     }
     function handleKeyUp(event: KeyboardEvent): void {
         console.log(`Keyup event: Key=${event.key}`);
+    }
+    function logInfo(_event: Event): void {
+        console.log(_event.type)
+        console.log(_event.target)
+        console.log(_event.currentTarget)
+        console.log(_event);
+    }
+    const button = document.getElementById('CustomEventButton');
+    button?.addEventListener('click') {
+        const customEvent = new CustomEvent('myCustomEvent')
     }
 }
     
