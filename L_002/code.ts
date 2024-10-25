@@ -23,7 +23,7 @@ namespace L_002EventsExcersice {
         let span: HTMLElement = <HTMLElement>document.querySelector("span");
          let box: string = ""
         span.innerText = box
-        span.style.top = _event.clientY +"px";
+        span.style.top = _event.clientY + "px";
         span.style.left = _event.clientX + "px";
     }
     function handleClick(event: MouseEvent): void {
@@ -39,9 +39,20 @@ namespace L_002EventsExcersice {
         console.log(_event);
     }
     const button = document.getElementById('CustomEventButton');
-    button?.addEventListener('click') {
-        const customEvent = new CustomEvent('myCustomEvent')
-    }
+    button.addEventListener('click', () => {
+        // Erzeuge das Custom-Event
+        const customEvent = new CustomEvent('myCustomEvent', {
+            detail: { message: 'Der Button wurde geklickt!' },
+            bubbles: true,  // Event soll durch den DOM aufsteigen
+            cancelable: true
+        });
+
+        // Custom-Event vom Button auslösen
+        button.dispatchEvent(customEvent);
+    });
+
+    // Abfangen des Custom-Events auf document-Ebene
+
 }
     
 
