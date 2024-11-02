@@ -1,0 +1,23 @@
+body{
+    position: relative;
+    text-align: center;
+}
+
+#list{
+    background-color: blue;
+    height: 100px;
+}
+
+#add{
+    position: relative;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#task{
+    position: relative;
+    margin-top: 60px;
+}
+h2{
+    font-size: medium;
+}

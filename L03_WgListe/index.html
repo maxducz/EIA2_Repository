@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WG-Aufgabenliste</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>WG-Aufgaben</h1>
+    <p>Aufgabenliste</p>
+
+    <div id="list">
+        <li>
+            <fieldset>Aufgabe 1
+                <input type="radio" name="list1" id="task1Done" value="Task1Done">
+                <label for="task1Done">Done</label>
+                <input type="radio" name="list1" id="task1InProgress" value="Task1InProgress">
+                <label for="task1InProgress">In progress</label>
+                <input type="radio" name="list1" id="task1Pending" value="Task1Pending">
+                <label for="task1Pending">Pending</label>
+            </fieldset>
+            <fieldset>Aufgabe 2
+                <input type="radio" name="list2" id="task2Done" value="Task2">
+                <label for="task2Done">Done</label>
+                <input type="radio" name="list2" id="task2InProgress" value="Task2InProgress">
+                <label for="task2InProgress">In progress</label>
+                <input type="radio" name="list2" id="task2Pending" value="Task2Pending">
+                <label for="task2Pending">Pending</label>
+            </fieldset>
+        </li>
+    </div>
+    <div id="add">
+        <button>
+            Add Task
+        </button>
+    </div>
+
+    <div id="task">
+        <h2>Füge eine Aufgabe hinzu</h2>
+        <input type="text" name="addtask" id="title" placeholder="Titel hinzufügen"><br>
+        <input type="text" name="addtask" id="who" placeholder="Zuweisung"><br>
+        <input type="date" name="addtask" id="when" placeholder="Fällig">
+        <label for="when">Fällig</label>
+        <input type="text" name="addtask" id="kommentar" placeholder="Kommentar"><br>
+    </div>
+</body>
+</html>

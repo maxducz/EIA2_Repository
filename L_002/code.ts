@@ -38,22 +38,20 @@ namespace L_002EventsExcersice {
         console.log(_event.currentTarget)
         console.log(_event);
     }
-    const button = document.getElementById('CustomEventButton');
-    button.addEventListener('click', () => {
-        // Erzeuge das Custom-Event
-        const customEvent = new CustomEvent('myCustomEvent', {
-            detail: { message: 'Der Button wurde geklickt!' },
-            bubbles: true,  // Event soll durch den DOM aufsteigen
-            cancelable: true
-        });
+    function customEvent(_event: Event): void {
+        let button: HTMLButtonElement = <HTMLButtonElement>_event.target;
 
-        // Custom-Event vom Button auslösen
-        button.dispatchEvent(customEvent);
-    });
+        let newEvent: CustomEvent = new CustomEvent("buttonClicked", { bubbles: true });
 
-    // Abfangen des Custom-Events auf document-Ebene
+        button.dispatchEvent(newEvent);
+    }
 
+    function logCustomEvent(_event: Event): void {
+        console.log("Button Geklickt");
+    }
 }
+
+
     
 
 
