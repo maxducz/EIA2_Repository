@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>WG-Aufgaben</h1>
-    <p>Aufgabenliste</p>
+    <h2>Aufgabenliste</h2>
 
     <div id="list">
         <li>
@@ -16,33 +16,38 @@
                 <input type="radio" name="list1" id="task1Done" value="Task1Done">
                 <label for="task1Done">Done</label>
                 <input type="radio" name="list1" id="task1InProgress" value="Task1InProgress">
-                <label for="task1InProgress">In progress</label>
+                <label for="task1InProgress">In progress</label><br>
                 <input type="radio" name="list1" id="task1Pending" value="Task1Pending">
-                <label for="task1Pending">Pending</label>
+                <label for="task1Pending">Pending</label><br>
+                <button id="delete">
+                    Delete Task
+                </button>
             </fieldset>
             <fieldset>Aufgabe 2
                 <input type="radio" name="list2" id="task2Done" value="Task2">
                 <label for="task2Done">Done</label>
                 <input type="radio" name="list2" id="task2InProgress" value="Task2InProgress">
-                <label for="task2InProgress">In progress</label>
+                <label for="task2InProgress">In progress</label><br>
                 <input type="radio" name="list2" id="task2Pending" value="Task2Pending">
-                <label for="task2Pending">Pending</label>
+                <label for="task2Pending">Pending</label><br>
+                <button id="delete">
+                    Delete Task
+                </button>
             </fieldset>
         </li>
     </div>
-    <div id="add">
-        <button>
-            Add Task
-        </button>
-    </div>
 
+    <h3>Füge eine Aufgabe hinzu</h3>
     <div id="task">
-        <h2>Füge eine Aufgabe hinzu</h2>
+        <button id="add">
+            Add Task
+        </button><br>
+
         <input type="text" name="addtask" id="title" placeholder="Titel hinzufügen"><br>
         <input type="text" name="addtask" id="who" placeholder="Zuweisung"><br>
         <input type="date" name="addtask" id="when" placeholder="Fällig">
-        <label for="when">Fällig</label>
-        <input type="text" name="addtask" id="kommentar" placeholder="Kommentar"><br>
+        <label for="when">Fällig</label><br>
+        <textarea name="comments" id="comments" placeholder="Kommentar"></textarea>
     </div>
 </body>
 </html>
