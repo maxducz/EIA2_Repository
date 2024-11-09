@@ -37,17 +37,13 @@ var L_002EventsExcersice;
         console.log(_event.currentTarget);
         console.log(_event);
     }
-    const button = document.getElementById('CustomEventButton');
-    button.addEventListener('click', () => {
-        // Erzeuge das Custom-Event
-        const customEvent = new CustomEvent('myCustomEvent', {
-            detail: { message: 'Der Button wurde geklickt!' },
-            bubbles: true, // Event soll durch den DOM aufsteigen
-            cancelable: true
-        });
-        // Custom-Event vom Button auslösen
-        button.dispatchEvent(customEvent);
-    });
-    // Abfangen des Custom-Events auf document-Ebene
+    function customEvent(_event) {
+        let button = _event.target;
+        let newEvent = new CustomEvent("buttonClicked", { bubbles: true });
+        button.dispatchEvent(newEvent);
+    }
+    function logCustomEvent(_event) {
+        console.log("Button Geklickt");
+    }
 })(L_002EventsExcersice || (L_002EventsExcersice = {}));
 //# sourceMappingURL=code.js.map
