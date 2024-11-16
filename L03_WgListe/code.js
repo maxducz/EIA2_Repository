@@ -1,5 +1,6 @@
 "use strict";
 // Event zum Hinzufügen einer Aufgabe
+// Funktion zum Laden der Startdaten aus einer JSON-Datei
 document.getElementById("add")?.addEventListener("click", function () {
     const list = document.getElementById("list");
     if (list) {
@@ -14,13 +15,33 @@ document.getElementById("add")?.addEventListener("click", function () {
             const task = document.createElement("div");
             task.className = "task";
             // HTML für die neue Aufgabe mit den Eingabewerten
-            task.innerHTML = `
-                <strong>Aufgabe: ${title}</strong><br>
-                Zuweisung: ${who}<br>
-                Fällig am: ${when}<br>
-                <p>Kommentar: ${comments}</p>
-                <button class="delete-btn">Delete Task</button>
-            `;
+            task.innerHTML =
+                Aufgabe;
+            $;
+            {
+                title;
+            }
+            /strong><br>;
+            Zuweisung: $;
+            {
+                who;
+            }
+            Fällig;
+            am: $;
+            {
+                when;
+            }
+            Kommentar;
+            $;
+            {
+                comments;
+            }
+            /p>
+                < button;
+            class {
+            }
+            "delete-btn" > Delete;
+            Task < /button>;
             // Aufgabe zur Liste hinzufügen
             list.appendChild(task);
             // Eingabefelder zurücksetzen

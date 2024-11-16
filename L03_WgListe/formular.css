@@ -1,0 +1,109 @@
+h1 {
+    font-family: fantasy;
+    font-size: 60pt;
+    letter-spacing: 15px;
+    background-image: url(wooden-floorboards_1249-100.jpg);
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.settingButton img,
+.settingButton {
+    width: 20px;
+    height: 20px;
+    float: right;
+}
+
+.backButton img, .backButton {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 30%;
+    top: 45%;
+    
+}
+
+.skipButton img, .skipButton {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 62%;
+    top: 45%;
+}
+
+.deleteButton img,
+.deleteButton {
+    width: 70px;
+    height: 70px;
+}
+
+.addButton img {
+    width: 70px;
+    height: 70px;
+}
+
+body {
+    background-image: url(brick-wall-texture-gray-brick-with-white-filling.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#tasks {
+    background-image: url(design-space-paper-textured-background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 350px;
+    height: 350px;
+    color: black;
+    margin: auto;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.deleteButton,
+.addButton,
+.deleteButton img,
+.addButton img {
+    display: inline-block;
+    margin: 0px 10px 5px;
+    text-align: center;
+}
+
+fieldset {
+    border: none;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#infos {
+    background: none;
+    width: 100%;
+    border: none;
+}
+
+main {
+    display: grid;
+    grid-template-areas:
+        "topbar topbar topbar"
+        "left middle right"
+        "footer change footer";
+
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: 50px auto 70px;
+}
