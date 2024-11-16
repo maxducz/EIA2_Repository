@@ -19,7 +19,7 @@ var A03_Formular;
         showTask(0);
     }
     function showTask(_index) {
-        let task = data[_index];
+        let task = A03_Formular.data[_index];
         let title = document.getElementById("infosTitle");
         let name = document.getElementById("infosFor");
         let date = document.getElementById("infosDate");
@@ -50,7 +50,7 @@ var A03_Formular;
         }
     }
     function deleteCurrentTask(_currentIndex) {
-        data.splice(_currentIndex, 1);
+        A03_Formular.data.splice(_currentIndex, 1);
     }
     function addTask() {
         console.log("Neues Task wird hinzugefügt");
