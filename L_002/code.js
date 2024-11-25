@@ -37,13 +37,13 @@ var L_002EventsExcersice;
         console.log(_event.currentTarget);
         console.log(_event);
     }
-    function customEvent(_event) {
-        let button = _event.target;
-        let newEvent = new CustomEvent("buttonClicked", { bubbles: true });
-        button.dispatchEvent(newEvent);
-    }
-    function logCustomEvent(_event) {
-        console.log("Button Geklickt");
-    }
+    // function customEvent(_event: Event): void {
+    //     let button: HTMLButtonElement = <HTMLButtonElement>_event.target;
+    //     let newEvent: CustomEvent = new CustomEvent("buttonClicked", { bubbles: true });
+    //     button.dispatchEvent(newEvent);
+    // }
+    // function logCustomEvent(_event: Event): void {
+    //     console.log("Button Geklickt");
+    // }
 })(L_002EventsExcersice || (L_002EventsExcersice = {}));
 //# sourceMappingURL=code.js.map

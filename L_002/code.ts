@@ -38,17 +38,17 @@ namespace L_002EventsExcersice {
         console.log(_event.currentTarget)
         console.log(_event);
     }
-    function customEvent(_event: Event): void {
-        let button: HTMLButtonElement = <HTMLButtonElement>_event.target;
+    // function customEvent(_event: Event): void {
+    //     let button: HTMLButtonElement = <HTMLButtonElement>_event.target;
 
-        let newEvent: CustomEvent = new CustomEvent("buttonClicked", { bubbles: true });
+    //     let newEvent: CustomEvent = new CustomEvent("buttonClicked", { bubbles: true });
 
-        button.dispatchEvent(newEvent);
-    }
+    //     button.dispatchEvent(newEvent);
+    // }
 
-    function logCustomEvent(_event: Event): void {
-        console.log("Button Geklickt");
-    }
+    // function logCustomEvent(_event: Event): void {
+    //     console.log("Button Geklickt");
+    // }
 }
 
 
