@@ -3,7 +3,7 @@ var A03_Formular;
 (function (A03_Formular) {
     console.log("Init");
     window.addEventListener("load", handleLoad);
-    function handleLoad(_event) {
+    async function handleLoad(_event) {
         let taskDiv = document.querySelector("div#tasks");
         taskDiv.addEventListener("change", handleChange);
         let deleteButton = document.querySelector(".deleteButton");
@@ -16,8 +16,10 @@ var A03_Formular;
         skipButton.addEventListener("click", nextTask);
         let settingButton = document.querySelector(".settingButton");
         settingButton.addEventListener("click", settingTask);
+        A03_Formular.data = await getJson();
         showTask();
     }
+    let serverUrl = "https://7c8644f9-f81d-49cd-980b-1883574694b6.fr.bw-cloud-instance.org/mro41572/mingidb.php";
     let currentIndex = 0;
     function showTask() {
         let task = A03_Formular.data[currentIndex];
@@ -49,7 +51,16 @@ var A03_Formular;
         console.log(JSON.stringify(A03_Formular.data));
     }
     async function getJson() {
-        return await (await fetch("data.Json")).json();
+        // let response: Response = await fetch("data.json");
+        // let data: Column[] = await response.json();
+        // return data
+        let query = new URLSearchParams(serverUrl);
+        query.set("command", "find");
+        query.set("collection", "organizerData");
+        query.set("data", "{}");
+        let response = await fetch(serverUrl + "?" + query.toString());
+        let responseJson = await response.json();
+        return responseJson.data;
     }
     function deleteTask() {
         let userConfirmed = confirm("Do you really want to delete the task?");
