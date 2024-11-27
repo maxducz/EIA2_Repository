@@ -1,23 +1,34 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var A03_Formular;
 (function (A03_Formular) {
     console.log("Init");
     window.addEventListener("load", handleLoad);
-    async function handleLoad(_event) {
-        let taskDiv = document.querySelector("div#tasks");
-        taskDiv.addEventListener("change", handleChange);
-        let deleteButton = document.querySelector(".deleteButton");
-        deleteButton.addEventListener("click", deleteTask);
-        let addButton = document.querySelector(".addButton");
-        addButton.addEventListener("click", addTask);
-        let backButton = document.querySelector(".backButton");
-        backButton.addEventListener("click", backTask);
-        let skipButton = document.querySelector(".skipButton");
-        skipButton.addEventListener("click", nextTask);
-        let settingButton = document.querySelector(".settingButton");
-        settingButton.addEventListener("click", settingTask);
-        A03_Formular.data = await getJson();
-        showTask();
+    function handleLoad(_event) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let taskDiv = document.querySelector("div#tasks");
+            taskDiv.addEventListener("change", handleChange);
+            let deleteButton = document.querySelector(".deleteButton");
+            deleteButton.addEventListener("click", deleteTask);
+            let addButton = document.querySelector(".addButton");
+            addButton.addEventListener("click", addTask);
+            let backButton = document.querySelector(".backButton");
+            backButton.addEventListener("click", backTask);
+            let skipButton = document.querySelector(".skipButton");
+            skipButton.addEventListener("click", nextTask);
+            let settingButton = document.querySelector(".settingButton");
+            settingButton.addEventListener("click", settingTask);
+            A03_Formular.data = yield getJson();
+            showTask();
+        });
     }
     let serverUrl = "https://7c8644f9-f81d-49cd-980b-1883574694b6.fr.bw-cloud-instance.org/mro41572/mingidb.php";
     let currentIndex = 0;
@@ -50,17 +61,19 @@ var A03_Formular;
     function handleChange() {
         console.log(JSON.stringify(A03_Formular.data));
     }
-    async function getJson() {
-        // let response: Response = await fetch("data.json");
-        // let data: Column[] = await response.json();
-        // return data
-        let query = new URLSearchParams(serverUrl);
-        query.set("command", "find");
-        query.set("collection", "organizerData");
-        query.set("data", "{}");
-        let response = await fetch(serverUrl + "?" + query.toString());
-        let responseJson = await response.json();
-        return responseJson.data;
+    function getJson() {
+        return __awaiter(this, void 0, void 0, function* () {
+            // let response: Response = await fetch("data.json");
+            // let data: Column[] = await response.json();
+            // return data
+            let query = new URLSearchParams(serverUrl);
+            query.set("command", "find");
+            query.set("collection", "organizerData");
+            query.set("data", "{}");
+            let response = yield fetch(serverUrl + "?" + query.toString());
+            let responseJson = yield response.json();
+            return responseJson.data;
+        });
     }
     function deleteTask() {
         let userConfirmed = confirm("Do you really want to delete the task?");
@@ -148,4 +161,3 @@ var A03_Formular;
         isEditing = !isEditing;
     }
 })(A03_Formular || (A03_Formular = {}));
-//# sourceMappingURL=formular.js.map

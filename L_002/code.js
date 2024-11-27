@@ -46,4 +46,3 @@ var L_002EventsExcersice;
     //     console.log("Button Geklickt");
     // }
 })(L_002EventsExcersice || (L_002EventsExcersice = {}));
-//# sourceMappingURL=code.js.map

@@ -33,4 +33,3 @@ var L03_CoktailBar;
         progress.value = parseFloat(amount);
     }
 })(L03_CoktailBar || (L03_CoktailBar = {}));
-//# sourceMappingURL=CocktailBar.js.map

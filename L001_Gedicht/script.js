@@ -22,4 +22,3 @@ var RandomGedicht;
         return vers;
     }
 })(RandomGedicht || (RandomGedicht = {}));
-//# sourceMappingURL=script.js.map
