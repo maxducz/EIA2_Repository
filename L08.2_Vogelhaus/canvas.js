@@ -50,6 +50,10 @@ function handleLoad(_event) {
             element.draw();
             element.move();
         });
+        cloud.forEach(element => {
+            element.draw();
+            element.move();
+        });
         snowman.draw();
         birdhouse.draw();
     }, 25);
