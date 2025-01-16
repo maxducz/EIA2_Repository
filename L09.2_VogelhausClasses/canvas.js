@@ -3,10 +3,8 @@ window.addEventListener("load", handleLoad);
 let crc2;
 let canvas;
 let background;
-let bird = [];
-let snowflake = [];
+let moveables = [];
 let snowman;
-let cloud = [];
 let birdhouse;
 function handleLoad(_event) {
     canvas = document.querySelector("canvas");
@@ -26,31 +24,23 @@ function handleLoad(_event) {
     drawTree(1200, 600);
     drawTree(1500, 760);
     background = crc2.getImageData(0, 0, canvas.width, canvas.height);
-    cloud.push(new Cloud(600, 200));
-    cloud.push(new Cloud(1300, 300));
+    moveables.push(new Cloud(600, 200));
+    moveables.push(new Cloud(1300, 300));
     new Birdhouse();
     new Snowman();
-    bird.push(new Bird(700, 600));
-    bird.push(new Bird(800, 350));
-    bird.push(new Bird(1200, 750));
-    bird.push(new Bird(300, 580));
-    bird.push(new Bird(1400, 450));
+    moveables.push(new Bird(700, 600));
+    moveables.push(new Bird(800, 350));
+    moveables.push(new Bird(1200, 750));
+    moveables.push(new Bird(300, 580));
+    moveables.push(new Bird(1400, 450));
     snowman = new Snowman();
     birdhouse = new Birdhouse();
     for (let i = 0; i < 30; i++) {
-        snowflake.push(new Snowflake(Math.random() * canvas.width, Math.random() * canvas.height));
+        moveables.push(new Snowflake(Math.random() * canvas.width, Math.random() * canvas.height));
     }
     window.setInterval(function () {
         crc2.putImageData(background, 0, 0);
-        bird.forEach(element => {
-            element.draw();
-            element.move();
-        });
-        snowflake.forEach(element => {
-            element.draw();
-            element.move();
-        });
-        cloud.forEach(element => {
+        moveables.forEach(element => {
             element.draw();
             element.move();
         });
@@ -90,158 +80,4 @@ function drawMountain(x1, y1, x2, y2, x3, y3, color) {
     crc2.closePath();
     crc2.fillStyle = color;
     crc2.fill();
-}
-function drawBirdhouse() {
-    crc2.fillStyle = "#8B4513";
-    crc2.fillRect(700, 1400, 80, 120);
-    crc2.fillStyle = "#A0522D";
-    crc2.beginPath();
-    crc2.moveTo(750, 800);
-    crc2.lineTo(850, 730);
-    crc2.lineTo(950, 800);
-    crc2.closePath();
-    crc2.fill();
-    crc2.fillStyle = "black";
-    crc2.beginPath();
-    crc2.arc(850, 770, 25, 0, Math.PI * 2);
-    crc2.fill();
-    crc2.strokeStyle = "brown";
-    crc2.lineWidth = 5;
-    crc2.beginPath();
-    crc2.moveTo(845, 800);
-    crc2.lineTo(820, 900);
-    crc2.stroke();
-    crc2.beginPath();
-    crc2.moveTo(855, 800);
-    crc2.lineTo(890, 900);
-    crc2.stroke();
-}
-class Bird {
-    draw() {
-        crc2.fillStyle = "brown";
-        crc2.beginPath();
-        crc2.arc(this.x, this.y, 30, 10, Math.PI * 2);
-        crc2.fill();
-    }
-    move() {
-        this.x += 0.5;
-        this.y += 0.5;
-    }
-    constructor(_x, _y) {
-        this.x = _x;
-        this.y = _y;
-    }
-}
-class Snowflake {
-    draw() {
-        crc2.fillStyle = "white";
-        crc2.beginPath();
-        crc2.arc(this.x, this.y, 5, 0, Math.PI * 2);
-        crc2.fill();
-    }
-    move() {
-        this.y += 0.3;
-    }
-    constructor(_x, _y) {
-        this.x = _x;
-        this.y = _y;
-    }
-}
-class Cloud {
-    draw() {
-        crc2.beginPath();
-        crc2.ellipse(this.x, this.y, 200, 155, 0, 0, Math.PI * 2);
-        crc2.fillStyle = "white";
-        crc2.globalAlpha = 0.9;
-        crc2.fill();
-        crc2.globalAlpha = 1;
-    }
-    move() {
-        this.x += 0.1;
-    }
-    constructor(_x, _y) {
-        this.x = _x;
-        this.y = _y;
-    }
-}
-class Snowman {
-    draw() {
-        crc2.fillStyle = "white";
-        crc2.beginPath();
-        crc2.arc(200, 800, 100, 0, Math.PI * 2);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(200, 650, 80, 0, Math.PI * 2);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(200, 520, 60, 0, Math.PI * 2);
-        crc2.fill();
-        crc2.fillStyle = "black";
-        crc2.beginPath();
-        crc2.arc(180, 490, 10, 0, Math.PI * 2);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(230, 490, 10, 0, Math.PI * 2);
-        crc2.fill();
-        crc2.fillStyle = "orange";
-        crc2.beginPath();
-        crc2.moveTo(200, 500);
-        crc2.lineTo(200, 520);
-        crc2.lineTo(340, 530);
-        crc2.closePath();
-        crc2.fill();
-        crc2.fillStyle = "brown";
-        crc2.beginPath();
-        crc2.arc(200, 610, 10, 0, Math.PI * 2);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(200, 650, 10, 0, Math.PI * 2);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(200, 690, 10, 0, Math.PI * 2);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(200, 760, 10, 0, Math.PI * 2);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(200, 800, 10, 0, Math.PI * 2);
-        crc2.fill();
-        crc2.strokeStyle = "brown";
-        crc2.lineWidth = 5;
-        crc2.beginPath();
-        crc2.moveTo(120, 650);
-        crc2.lineTo(20, 600);
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.moveTo(280, 650);
-        crc2.lineTo(380, 600);
-        crc2.stroke();
-    }
-}
-class Birdhouse {
-    draw() {
-        crc2.fillStyle = "#8B4513";
-        crc2.fillRect(700, 1400, 80, 120);
-        crc2.fillStyle = "#A0522D";
-        crc2.beginPath();
-        crc2.moveTo(750, 800);
-        crc2.lineTo(850, 730);
-        crc2.lineTo(950, 800);
-        crc2.closePath();
-        crc2.fill();
-        crc2.fillStyle = "black";
-        crc2.beginPath();
-        crc2.arc(850, 770, 25, 0, Math.PI * 2);
-        crc2.fill();
-        crc2.strokeStyle = "brown";
-        crc2.lineWidth = 5;
-        crc2.beginPath();
-        crc2.moveTo(845, 800);
-        crc2.lineTo(820, 900);
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.moveTo(855, 800);
-        crc2.lineTo(890, 900);
-        crc2.stroke();
-    }
 }
