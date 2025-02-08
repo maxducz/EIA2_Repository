@@ -41,3 +41,11 @@ export function updateSavedDropdown() {
         dropdown.appendChild(option);
     });
 }
+export function deleteRocketConfig(index) {
+    const savedRockets = JSON.parse(localStorage.getItem('savedRockets') || '[]');
+    if (index >= 0 && index < savedRockets.length) {
+        savedRockets.splice(index, 1);
+        localStorage.setItem('savedRockets', JSON.stringify(savedRockets));
+        updateSavedDropdown();
+    }
+}

@@ -56,3 +56,11 @@ export interface RocketConfig {
     });
   }
   
+  export function deleteRocketConfig(index: number): void {
+    const savedRockets: RocketConfig[] = JSON.parse(localStorage.getItem('savedRockets') || '[]');
+    if (index >= 0 && index < savedRockets.length) {
+        savedRockets.splice(index, 1);
+        localStorage.setItem('savedRockets', JSON.stringify(savedRockets));
+        updateSavedDropdown();
+    }
+  }

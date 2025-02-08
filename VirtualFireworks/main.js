@@ -1,6 +1,6 @@
 // main.ts
 import { FireworkManager } from "./firework.js";
-import { getRocketConfig, saveRocketConfig, updateSavedDropdown } from "./designer.js";
+import { getRocketConfig, saveRocketConfig, updateSavedDropdown, deleteRocketConfig } from "./designer.js";
 window.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('previewCanvas');
     const fireworkManager = new FireworkManager(canvas);
@@ -32,6 +32,17 @@ window.addEventListener('DOMContentLoaded', () => {
         document.getElementById('rocketColor').value = '#ff0000';
         document.getElementById('particleSpeed').value = '5';
         document.getElementById('fadeDuration').value = '3';
+    });
+    // Delete-Button: Löscht die aktuell im Dropdown ausgewählte Rakete
+    const deleteBtn = document.getElementById('deleteBtn');
+    deleteBtn.addEventListener('click', () => {
+        const savedDropdown = document.getElementById('savedRockets');
+        if (!savedDropdown.value) {
+            alert("Bitte wähle eine Rakete aus dem Dropdown aus, die gelöscht werden soll!");
+            return;
+        }
+        const selectedIndex = parseInt(savedDropdown.value, 10);
+        deleteRocketConfig(selectedIndex);
     });
     // Dropdown: Bei Auswahl einer gespeicherten Rakete, lade die Parameter in die Eingabefelder.
     const savedDropdown = document.getElementById('savedRockets');
